@@ -20,11 +20,12 @@ export default function Home() {
     const newBoard = structuredClone(board);
     newBoard[y][x] = turnColor;
     setBoard(newBoard);
-    if (turnColor === 1) {
-      setTurnColor(2);
-    } else {
-      setTurnColor(1);
+    setTurnColor(3 - turnColor);
+    if (board[y + 1] !== undefined && board[y + 1][x] === 3 - turnColor) {
+      newBoard[y][x] = turnColor;
+      setTurnColor(3 - turnColor);
     }
+    setBoard(newBoard);
   };
   return (
     <div className={styles.container}>

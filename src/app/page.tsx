@@ -27,15 +27,128 @@ export default function Home() {
   ]);
   const clickHandler = (x: number, y: number) => {
     console.log(x, y);
+    // if (board[y][x] !== 0) return;
+    // for (let tate = 0; tate < 7; tate++) {
+    //   for (let yoko = 0; yoko < 7; yoko++) {
+    //     if (board[y + tate] !== undefined && board[y + tate][x + yoko] === turnColor) {
+    //       board[y + tate][x + yoko] = 3 - turnColor;
+    //       // board[y - tate][x - yoko] = 3 - turnColor;
+    //     }
+    //   }
+    // }
     if (board[y][x] !== 0) return;
-    // if
-    for (let tate = 0; tate < 7; tate++) {
-      for (let yoko = 0; yoko < 7; yoko++) {
-        if (board[y + tate] !== undefined && board[y + tate][x + yoko] === turnColor) {
-          board[y + tate][x + yoko] = 3 - turnColor;
-        }
+    if (board[y][x] !== undefined) {
+      //縦方向の処理です
+      //下側の処理です
+      if (board[y + 2][x] === turnColor) {
+        board[y + 1][x] = turnColor;
+      }
+      if (board[y + 3] !== undefined && board[y + 3][x] === turnColor) {
+        board[y + 2][x] = turnColor;
+        board[y + 1][x] = turnColor;
+      }
+      if (board[y + 4] !== undefined && board[y + 4][x] === turnColor) {
+        board[y + 3][x] = turnColor;
+        board[y + 2][x] = turnColor;
+        board[y + 1][x] = turnColor;
+      }
+      //上側の処理です
+      if (board[y - 2] !== undefined && board[y - 2][x] === turnColor) {
+        board[y - 1][x] = turnColor;
+      }
+      if (board[y - 3] !== undefined && board[y - 3][x] === turnColor) {
+        board[y - 2][x] = turnColor;
+        board[y - 1][x] = turnColor;
+      }
+      if (board[y - 4] !== undefined && board[y - 4][x] === turnColor) {
+        board[y - 3][x] = turnColor;
+        board[y - 2][x] = turnColor;
+        board[y - 1][x] = turnColor;
+      }
+      //横方向の処理です
+      //右側の処理です
+      if (board[x + 2] !== undefined && board[y][x + 2] === turnColor) {
+        board[y][x + 1] = turnColor;
+      }
+      if (board[x + 3] !== undefined && board[y][x + 3] === turnColor) {
+        board[y][x + 2] = turnColor;
+        board[y][x + 1] = turnColor;
+      }
+      if (board[x + 4] !== undefined && board[y][x + 4] === turnColor) {
+        board[y][x + 3] = turnColor;
+        board[y][x + 2] = turnColor;
+        board[y][x + 1] = turnColor;
+      }
+      //左方向の処理です
+      if (board[x - 2] !== undefined && board[y][x - 2] === turnColor) {
+        board[y][x - 1] = turnColor;
+      }
+      if (board[x - 3] !== undefined && board[y][x - 3] === turnColor) {
+        board[y][x - 2] = turnColor;
+        board[y][x - 1] = turnColor;
+      }
+      if (board[x - 4] !== undefined && board[y][x - 4] === turnColor) {
+        board[y][x - 3] = turnColor;
+        board[y][x - 2] = turnColor;
+        board[y][x - 1] = turnColor;
+      }
+      //右下方向の処理です
+      if (board[y + 2][x + 2] !== undefined && board[y + 2][x + 2] === turnColor) {
+        board[y + 1][x + 1] = turnColor;
+      }
+      if (board[y + 3][x + 3] !== undefined && board[y + 3][x + 3] === turnColor) {
+        board[y + 2][x + 2] = turnColor;
+        board[y + 1][x + 1] = turnColor;
+      }
+      if (board[y + 4][x + 4] !== undefined && board[y + 4][x + 4] === turnColor) {
+        board[y + 3][x + 3] = turnColor;
+        board[y + 2][x + 2] = turnColor;
+        board[y + 1][x + 1] = turnColor;
+      }
+      //右上方向の処理です
+      if (board[y - 2][x + 2] !== undefined && board[y - 2][x + 2] === turnColor) {
+        board[y - 1][x + 1] = turnColor;
+      }
+      if (board[y - 3][x + 3] !== undefined && board[y - 3][x + 3] === turnColor) {
+        board[y - 2][x + 2] = turnColor;
+        board[y - 1][x + 1] = turnColor;
+      }
+      if (board[y - 4][x + 4] !== undefined && board[y - 4][x + 4] === turnColor) {
+        board[y - 3][x + 3] = turnColor;
+        board[y - 2][x + 2] = turnColor;
+        board[y - 1][x + 1] = turnColor;
+      }
+      //左上方向の処理です
+      if (board[y - 2][x - 2] !== undefined && board[y - 2][x - 2] === turnColor) {
+        board[y - 1][x - 1] = turnColor;
+      }
+      if (board[y - 3][x - 3] !== undefined && board[y - 3][x - 3] === turnColor) {
+        board[y - 2][x - 2] = turnColor;
+        board[y - 1][x - 1] = turnColor;
+      }
+      if (board[y - 4][x - 4] !== undefined && board[y - 4][x - 4] === turnColor) {
+        board[y - 3][x - 3] = turnColor;
+        board[y - 2][x - 2] = turnColor;
+        board[y - 1][x - 1] = turnColor;
+      }
+      //左下方向の処理です
+      if (board[y + 2][x + 2] !== undefined && board[y + 2][x + 2] === turnColor) {
+        board[y + 1][x + 1] = turnColor;
+      }
+      if (board[y + 3][x + 3] !== undefined && board[y + 3][x + 3] === turnColor) {
+        board[y + 2][x + 2] = turnColor;
+        board[y + 1][x + 1] = turnColor;
+      }
+      if (board[y + 4][x + 4] !== undefined && board[y + 4][x + 4] === turnColor) {
+        board[y + 3][x + 3] = turnColor;
+        board[y + 2][x + 2] = turnColor;
+        board[y + 1][x + 1] = turnColor;
       }
     }
+
+    // if ((board[y][x + 2] = turnColor)) {
+    //   board[y][x + 1] = 3 - turnColor;
+    // }
 
     const newBoard = structuredClone(board);
     newBoard[y][x] = turnColor;

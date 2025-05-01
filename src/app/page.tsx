@@ -67,6 +67,66 @@ export default function Home() {
       newBoard[y + 2][x] = turnColor;
       newBoard[y + 1][x] = turnColor;
     }
+    if (
+      y + 1 < 8 &&
+      board[y + 1][x] === 3 - turnColor &&
+      y + 2 < 8 &&
+      board[y + 2][x] === 3 - turnColor &&
+      y + 3 < 8 &&
+      board[y + 3][x] === 3 - turnColor &&
+      y + 4 < 8 &&
+      board[y + 4][x] === 3 - turnColor &&
+      y + 5 < 8 &&
+      board[y + 5][x] === turnColor
+    ) {
+      newBoard[y + 4][x] = turnColor;
+      newBoard[y + 3][x] = turnColor;
+      newBoard[y + 2][x] = turnColor;
+      newBoard[y + 1][x] = turnColor;
+    }
+    if (
+      y + 1 < 8 &&
+      board[y + 1][x] === 3 - turnColor &&
+      y + 2 < 8 &&
+      board[y + 2][x] === 3 - turnColor &&
+      y + 3 < 8 &&
+      board[y + 3][x] === 3 - turnColor &&
+      y + 4 < 8 &&
+      board[y + 4][x] === 3 - turnColor &&
+      y + 5 < 8 &&
+      board[y + 5][x] === 3 - turnColor &&
+      y + 6 < 8 &&
+      board[y + 6][x] === turnColor
+    ) {
+      newBoard[y + 5][x] = turnColor;
+      newBoard[y + 4][x] = turnColor;
+      newBoard[y + 3][x] = turnColor;
+      newBoard[y + 2][x] = turnColor;
+      newBoard[y + 1][x] = turnColor;
+    }
+    if (
+      y + 1 < 8 &&
+      board[y + 1][x] === 3 - turnColor &&
+      y + 2 < 8 &&
+      board[y + 2][x] === 3 - turnColor &&
+      y + 3 < 8 &&
+      board[y + 3][x] === 3 - turnColor &&
+      y + 4 < 8 &&
+      board[y + 4][x] === 3 - turnColor &&
+      y + 5 < 8 &&
+      board[y + 5][x] === 3 - turnColor &&
+      y + 6 < 8 &&
+      board[y + 6][x] === 3 - turnColor &&
+      y + 7 < 8 &&
+      board[y + 7][x] === turnColor
+    ) {
+      newBoard[y + 6][x] = turnColor;
+      newBoard[y + 5][x] = turnColor;
+      newBoard[y + 4][x] = turnColor;
+      newBoard[y + 3][x] = turnColor;
+      newBoard[y + 2][x] = turnColor;
+      newBoard[y + 1][x] = turnColor;
+    }
     // 上側
     if (
       y - 1 >= 0 &&
@@ -101,7 +161,66 @@ export default function Home() {
       newBoard[y - 2][x] = turnColor;
       newBoard[y - 1][x] = turnColor;
     }
-
+    if (
+      y - 1 < 8 &&
+      board[y - 1][x] === 3 - turnColor &&
+      y - 2 < 8 &&
+      board[y - 2][x] === 3 - turnColor &&
+      y - 3 < 8 &&
+      board[y - 3][x] === 3 - turnColor &&
+      y - 4 < 8 &&
+      board[y - 4][x] === 3 - turnColor &&
+      y - 5 < 8 &&
+      board[y - 5][x] === turnColor
+    ) {
+      newBoard[y - 4][x] = turnColor;
+      newBoard[y - 3][x] = turnColor;
+      newBoard[y - 2][x] = turnColor;
+      newBoard[y - 1][x] = turnColor;
+    }
+    if (
+      y - 1 < 8 &&
+      board[y - 1][x] === 3 - turnColor &&
+      y - 2 < 8 &&
+      board[y - 2][x] === 3 - turnColor &&
+      y - 3 < 8 &&
+      board[y - 3][x] === 3 - turnColor &&
+      y - 4 < 8 &&
+      board[y - 4][x] === 3 - turnColor &&
+      y - 5 < 8 &&
+      board[y - 5][x] === 3 - turnColor &&
+      y - 6 < 8 &&
+      board[y - 6][x] === turnColor
+    ) {
+      newBoard[y - 5][x] = turnColor;
+      newBoard[y - 4][x] = turnColor;
+      newBoard[y - 3][x] = turnColor;
+      newBoard[y - 2][x] = turnColor;
+      newBoard[y - 1][x] = turnColor;
+    }
+    if (
+      y - 1 < 8 &&
+      board[y - 1][x] === 3 - turnColor &&
+      y - 2 < 8 &&
+      board[y - 2][x] === 3 - turnColor &&
+      y - 3 < 8 &&
+      board[y - 3][x] === 3 - turnColor &&
+      y - 4 < 8 &&
+      board[y - 4][x] === 3 - turnColor &&
+      y - 5 < 8 &&
+      board[y - 5][x] === 3 - turnColor &&
+      y - 6 < 8 &&
+      board[y - 6][x] === 3 - turnColor &&
+      y - 7 < 8 &&
+      board[y - 7][x] === turnColor
+    ) {
+      newBoard[y - 6][x] = turnColor;
+      newBoard[y - 5][x] = turnColor;
+      newBoard[y - 4][x] = turnColor;
+      newBoard[y - 3][x] = turnColor;
+      newBoard[y - 2][x] = turnColor;
+      newBoard[y - 1][x] = turnColor;
+    }
     // 横方向の処理
     // 右側
     if (
@@ -137,6 +256,66 @@ export default function Home() {
       newBoard[y][x + 2] = turnColor;
       newBoard[y][x + 1] = turnColor;
     }
+    if (
+      y + 1 < 8 &&
+      board[y][x + 1] === 3 - turnColor &&
+      y + 2 < 8 &&
+      board[y][x + 2] === 3 - turnColor &&
+      y + 3 < 8 &&
+      board[y][x + 3] === 3 - turnColor &&
+      y + 4 < 8 &&
+      board[y][x + 4] === 3 - turnColor &&
+      y + 5 < 8 &&
+      board[y][x + 5] === turnColor
+    ) {
+      newBoard[y][x + 1] = turnColor;
+      newBoard[y][x + 2] = turnColor;
+      newBoard[y][x + 3] = turnColor;
+      newBoard[y][x + 4] = turnColor;
+    }
+    if (
+      y + 1 < 8 &&
+      board[y][x + 1] === 3 - turnColor &&
+      y + 2 < 8 &&
+      board[y][x + 2] === 3 - turnColor &&
+      y + 3 < 8 &&
+      board[y][x + 3] === 3 - turnColor &&
+      y + 4 < 8 &&
+      board[y][x + 4] === 3 - turnColor &&
+      y + 5 < 8 &&
+      board[y][x + 4] === 3 - turnColor &&
+      y + 6 < 8 &&
+      board[y][x + 5] === turnColor
+    ) {
+      newBoard[y][x + 1] = turnColor;
+      newBoard[y][x + 2] = turnColor;
+      newBoard[y][x + 3] = turnColor;
+      newBoard[y][x + 4] = turnColor;
+      newBoard[y][x + 5] = turnColor;
+    }
+    if (
+      y + 1 < 8 &&
+      board[y][x + 1] === 3 - turnColor &&
+      y + 2 < 8 &&
+      board[y][x + 2] === 3 - turnColor &&
+      y + 3 < 8 &&
+      board[y][x + 3] === 3 - turnColor &&
+      y + 4 < 8 &&
+      board[y][x + 4] === 3 - turnColor &&
+      y + 5 < 8 &&
+      board[y][x + 5] === 3 - turnColor &&
+      y + 6 < 8 &&
+      board[y][x + 6] === 3 - turnColor &&
+      y + 7 < 8 &&
+      board[y][x + 7] === turnColor
+    ) {
+      newBoard[y][x + 1] = turnColor;
+      newBoard[y][x + 2] = turnColor;
+      newBoard[y][x + 3] = turnColor;
+      newBoard[y][x + 4] = turnColor;
+      newBoard[y][x + 5] = turnColor;
+      newBoard[y][x + 6] = turnColor;
+    }
     // 左側
     if (
       x - 1 >= 0 &&
@@ -171,7 +350,66 @@ export default function Home() {
       newBoard[y][x - 2] = turnColor;
       newBoard[y][x - 1] = turnColor;
     }
-
+    if (
+      y - 1 < 8 &&
+      board[y][x - 1] === 3 - turnColor &&
+      y - 2 < 8 &&
+      board[y][x - 2] === 3 - turnColor &&
+      y - 3 < 8 &&
+      board[y][x - 3] === 3 - turnColor &&
+      y - 4 < 8 &&
+      board[y][x - 4] === 3 - turnColor &&
+      y - 5 < 8 &&
+      board[y][x - 5] === turnColor
+    ) {
+      newBoard[y][x - 1] = turnColor;
+      newBoard[y][x - 2] = turnColor;
+      newBoard[y][x - 3] = turnColor;
+      newBoard[y][x - 4] = turnColor;
+    }
+    if (
+      y - 1 < 8 &&
+      board[y][x - 1] === 3 - turnColor &&
+      y - 2 < 8 &&
+      board[y][x - 2] === 3 - turnColor &&
+      y - 3 < 8 &&
+      board[y][x - 3] === 3 - turnColor &&
+      y - 4 < 8 &&
+      board[y][x - 4] === 3 - turnColor &&
+      y - 5 < 8 &&
+      board[y][x - 4] === 3 - turnColor &&
+      y - 6 < 8 &&
+      board[y][x - 5] === turnColor
+    ) {
+      newBoard[y][x - 1] = turnColor;
+      newBoard[y][x - 2] = turnColor;
+      newBoard[y][x - 3] = turnColor;
+      newBoard[y][x - 4] = turnColor;
+      newBoard[y][x - 5] = turnColor;
+    }
+    if (
+      y - 1 < 8 &&
+      board[y][x - 1] === 3 - turnColor &&
+      y - 2 < 8 &&
+      board[y][x - 2] === 3 - turnColor &&
+      y - 3 < 8 &&
+      board[y][x - 3] === 3 - turnColor &&
+      y - 4 < 8 &&
+      board[y][x - 4] === 3 - turnColor &&
+      y - 5 < 8 &&
+      board[y][x - 5] === 3 - turnColor &&
+      y - 6 < 8 &&
+      board[y][x - 6] === 3 - turnColor &&
+      y - 7 < 8 &&
+      board[y][x - 7] === turnColor
+    ) {
+      newBoard[y][x - 1] = turnColor;
+      newBoard[y][x - 2] = turnColor;
+      newBoard[y][x - 3] = turnColor;
+      newBoard[y][x - 4] = turnColor;
+      newBoard[y][x - 5] = turnColor;
+      newBoard[y][x - 6] = turnColor;
+    }
     // 斜め方向の処理
     // 右下
     if (
@@ -216,7 +454,86 @@ export default function Home() {
       newBoard[y + 2][x + 2] = turnColor;
       newBoard[y + 1][x + 1] = turnColor;
     }
+    if (
+      y + 1 < 8 &&
+      x + 1 < 8 &&
+      board[y + 1][x + 1] === 3 - turnColor &&
+      y + 2 < 8 &&
+      x + 2 < 8 &&
+      board[y + 2][x + 2] === 3 - turnColor &&
+      y + 3 < 8 &&
+      x + 3 < 8 &&
+      board[y + 3][x + 3] === 3 - turnColor &&
+      y + 4 < 8 &&
+      x + 4 < 8 &&
+      board[y + 4][x + 4] === 3 - turnColor &&
+      y + 5 < 8 &&
+      x + 5 < 8 &&
+      board[y + 5][x + 5] === turnColor
+    ) {
+      newBoard[y + 4][x + 4] = turnColor;
+      newBoard[y + 3][x + 3] = turnColor;
+      newBoard[y + 2][x + 2] = turnColor;
+      newBoard[y + 1][x + 1] = turnColor;
+    }
+    if (
+      y + 1 < 8 &&
+      x + 1 < 8 &&
+      board[y + 1][x + 1] === 3 - turnColor &&
+      y + 2 < 8 &&
+      x + 2 < 8 &&
+      board[y + 2][x + 2] === 3 - turnColor &&
+      y + 3 < 8 &&
+      x + 3 < 8 &&
+      board[y + 3][x + 3] === 3 - turnColor &&
+      y + 4 < 8 &&
+      x + 4 < 8 &&
+      board[y + 4][x + 4] === 3 - turnColor &&
+      y + 5 < 8 &&
+      x + 5 < 8 &&
+      board[y + 5][x + 5] === 3 - turnColor &&
+      y + 6 < 8 &&
+      x + 6 < 8 &&
+      board[y + 6][x + 6] === turnColor
+    ) {
+      newBoard[y + 5][x + 5] = turnColor;
+      newBoard[y + 4][x + 4] = turnColor;
+      newBoard[y + 3][x + 3] = turnColor;
+      newBoard[y + 2][x + 2] = turnColor;
+      newBoard[y + 1][x + 1] = turnColor;
+    }
+    if (
+      y + 1 < 8 &&
+      x + 1 < 8 &&
+      board[y + 1][x + 1] === 3 - turnColor &&
+      y + 2 < 8 &&
+      x + 2 < 8 &&
+      board[y + 2][x + 2] === 3 - turnColor &&
+      y + 3 < 8 &&
+      x + 3 < 8 &&
+      board[y + 3][x + 3] === 3 - turnColor &&
+      y + 4 < 8 &&
+      x + 4 < 8 &&
+      board[y + 4][x + 4] === 3 - turnColor &&
+      y + 5 < 8 &&
+      x + 5 < 8 &&
+      board[y + 5][x + 5] === 3 - turnColor &&
+      y + 6 < 8 &&
+      x + 6 < 8 &&
+      board[y + 6][x + 6] === 3 - turnColor &&
+      y + 7 < 8 &&
+      x + 7 < 8 &&
+      board[y + 7][x + 7] === turnColor
+    ) {
+      newBoard[y + 6][x + 6] = turnColor;
+      newBoard[y + 5][x + 5] = turnColor;
+      newBoard[y + 4][x + 4] = turnColor;
+      newBoard[y + 3][x + 3] = turnColor;
+      newBoard[y + 2][x + 2] = turnColor;
+      newBoard[y + 1][x + 1] = turnColor;
+    }
     // 右上
+    //上にいって右にいくイメージだから、ｙがーでｘが＋になる
     if (
       y - 1 >= 0 &&
       x + 1 < 8 &&
@@ -255,6 +572,84 @@ export default function Home() {
       x + 4 < 8 &&
       board[y - 4][x + 4] === turnColor
     ) {
+      newBoard[y - 3][x + 3] = turnColor;
+      newBoard[y - 2][x + 2] = turnColor;
+      newBoard[y - 1][x + 1] = turnColor;
+    }
+    if (
+      y - 1 >= 0 &&
+      x + 1 < 8 &&
+      board[y - 1][x + 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x + 2 < 8 &&
+      board[y - 2][x + 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x + 3 < 8 &&
+      board[y - 3][x + 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x + 4 < 8 &&
+      board[y - 4][x + 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x + 5 < 8 &&
+      board[y - 5][x + 5] === turnColor
+    ) {
+      newBoard[y - 4][x + 4] = turnColor;
+      newBoard[y - 3][x + 3] = turnColor;
+      newBoard[y - 2][x + 2] = turnColor;
+      newBoard[y - 1][x + 1] = turnColor;
+    }
+    if (
+      y - 1 >= 0 &&
+      x + 1 < 8 &&
+      board[y - 1][x + 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x + 2 < 8 &&
+      board[y - 2][x + 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x + 3 < 8 &&
+      board[y - 3][x + 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x + 4 < 8 &&
+      board[y - 4][x + 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x + 5 < 8 &&
+      board[y - 5][x + 5] === 3 - turnColor &&
+      y - 6 >= 0 &&
+      x + 6 < 8 &&
+      board[y - 6][x + 6] === turnColor
+    ) {
+      newBoard[y - 5][x + 5] = turnColor;
+      newBoard[y - 4][x + 4] = turnColor;
+      newBoard[y - 3][x + 3] = turnColor;
+      newBoard[y - 2][x + 2] = turnColor;
+      newBoard[y - 1][x + 1] = turnColor;
+    }
+    if (
+      y - 1 >= 0 &&
+      x + 1 < 8 &&
+      board[y - 1][x + 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x + 2 < 8 &&
+      board[y - 2][x + 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x + 3 < 8 &&
+      board[y - 3][x + 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x + 4 < 8 &&
+      board[y - 4][x + 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x + 5 < 8 &&
+      board[y - 5][x + 5] === 3 - turnColor &&
+      y - 6 >= 0 &&
+      x + 6 < 8 &&
+      board[y - 6][x + 6] === 3 - turnColor &&
+      y - 7 >= 0 &&
+      x + 7 < 8 &&
+      board[y - 7][x + 7] === turnColor
+    ) {
+      newBoard[y - 6][x + 6] = turnColor;
+      newBoard[y - 5][x + 5] = turnColor;
+      newBoard[y - 4][x + 4] = turnColor;
       newBoard[y - 3][x + 3] = turnColor;
       newBoard[y - 2][x + 2] = turnColor;
       newBoard[y - 1][x + 1] = turnColor;
@@ -302,6 +697,84 @@ export default function Home() {
       newBoard[y - 2][x - 2] = turnColor;
       newBoard[y - 1][x - 1] = turnColor;
     }
+    if (
+      y - 1 >= 0 &&
+      x - 1 < 8 &&
+      board[y - 1][x - 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x - 2 < 8 &&
+      board[y - 2][x - 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x - 3 < 8 &&
+      board[y - 3][x - 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x - 4 < 8 &&
+      board[y - 4][x - 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x - 5 < 8 &&
+      board[y - 5][x - 5] === turnColor
+    ) {
+      newBoard[y - 4][x - 4] = turnColor;
+      newBoard[y - 3][x - 3] = turnColor;
+      newBoard[y - 2][x - 2] = turnColor;
+      newBoard[y - 1][x - 1] = turnColor;
+    }
+    if (
+      y - 1 >= 0 &&
+      x - 1 < 8 &&
+      board[y - 1][x - 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x - 2 < 8 &&
+      board[y - 2][x - 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x - 3 < 8 &&
+      board[y - 3][x - 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x - 4 < 8 &&
+      board[y - 4][x - 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x - 5 < 8 &&
+      board[y - 5][x - 5] === 3 - turnColor &&
+      y - 6 >= 0 &&
+      x - 6 < 8 &&
+      board[y - 6][x - 6] === turnColor
+    ) {
+      newBoard[y - 5][x - 5] = turnColor;
+      newBoard[y - 4][x - 4] = turnColor;
+      newBoard[y - 3][x - 3] = turnColor;
+      newBoard[y - 2][x - 2] = turnColor;
+      newBoard[y - 1][x - 1] = turnColor;
+    }
+    if (
+      y - 1 >= 0 &&
+      x - 1 < 8 &&
+      board[y - 1][x - 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x - 2 < 8 &&
+      board[y - 2][x - 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x - 3 < 8 &&
+      board[y - 3][x - 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x - 4 < 8 &&
+      board[y - 4][x - 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x - 5 < 8 &&
+      board[y - 5][x - 5] === 3 - turnColor &&
+      y - 6 >= 0 &&
+      x - 6 < 8 &&
+      board[y - 6][x - 6] === 3 - turnColor &&
+      y - 7 >= 0 &&
+      x - 7 < 8 &&
+      board[y - 7][x - 7] === turnColor
+    ) {
+      newBoard[y - 6][x - 6] = turnColor;
+      newBoard[y - 5][x - 5] = turnColor;
+      newBoard[y - 4][x - 4] = turnColor;
+      newBoard[y - 3][x - 3] = turnColor;
+      newBoard[y - 2][x - 2] = turnColor;
+      newBoard[y - 1][x - 1] = turnColor;
+    }
     // 左下
     if (
       y + 1 < 8 &&
@@ -341,6 +814,84 @@ export default function Home() {
       x - 4 >= 0 &&
       board[y + 4][x - 4] === turnColor
     ) {
+      newBoard[y + 3][x - 3] = turnColor;
+      newBoard[y + 2][x - 2] = turnColor;
+      newBoard[y + 1][x - 1] = turnColor;
+    }
+    if (
+      y + 1 >= 0 &&
+      x - 1 < 8 &&
+      board[y + 1][x - 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x - 2 < 8 &&
+      board[y + 2][x - 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x - 3 < 8 &&
+      board[y + 3][x - 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x - 4 < 8 &&
+      board[y + 4][x - 4] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x - 5 < 8 &&
+      board[y + 5][x - 5] === turnColor
+    ) {
+      newBoard[y + 4][x - 4] = turnColor;
+      newBoard[y + 3][x - 3] = turnColor;
+      newBoard[y + 2][x - 2] = turnColor;
+      newBoard[y + 1][x - 1] = turnColor;
+    }
+    if (
+      y + 1 >= 0 &&
+      x - 1 < 8 &&
+      board[y + 1][x - 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x - 2 < 8 &&
+      board[y + 2][x - 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x - 3 < 8 &&
+      board[y + 3][x - 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x - 4 < 8 &&
+      board[y + 4][x - 4] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x - 5 < 8 &&
+      board[y + 5][x - 5] === 3 - turnColor &&
+      y + 6 >= 0 &&
+      x - 6 < 8 &&
+      board[y + 6][x - 6] === turnColor
+    ) {
+      newBoard[y + 5][x - 5] = turnColor;
+      newBoard[y + 4][x - 4] = turnColor;
+      newBoard[y + 3][x - 3] = turnColor;
+      newBoard[y + 2][x - 2] = turnColor;
+      newBoard[y + 1][x - 1] = turnColor;
+    }
+    if (
+      y + 1 >= 0 &&
+      x - 1 < 8 &&
+      board[y + 1][x - 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x - 2 < 8 &&
+      board[y + 2][x - 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x - 3 < 8 &&
+      board[y + 3][x - 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x - 4 < 8 &&
+      board[y + 4][x - 4] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x - 5 < 8 &&
+      board[y + 5][x - 5] === 3 - turnColor &&
+      y + 6 >= 0 &&
+      x - 6 < 8 &&
+      board[y + 6][x - 6] === 3 - turnColor &&
+      y + 7 >= 0 &&
+      x - 7 < 8 &&
+      board[y + 7][x - 7] === turnColor
+    ) {
+      newBoard[y + 6][x - 6] = turnColor;
+      newBoard[y + 5][x - 5] = turnColor;
+      newBoard[y + 4][x - 4] = turnColor;
       newBoard[y + 3][x - 3] = turnColor;
       newBoard[y + 2][x - 2] = turnColor;
       newBoard[y + 1][x - 1] = turnColor;

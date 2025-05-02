@@ -2,17 +2,6 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
-
-const directions = [
-  [-1, -1],
-  [-1, 0],
-  [-1, 1],
-  [0, -1],
-  [0, 1],
-  [1, -1],
-  [1, 0],
-  [1, 1],
-];
 export default function Home() {
   const [turnColor, setTurnColor] = useState(1);
   const [board, setBoard] = useState([
@@ -28,10 +17,11 @@ export default function Home() {
   const clickHandler = (x: number, y: number) => {
     console.log(x, y);
     if (board[y][x] !== 0) return;
+    //石がある➡undefind
+    let ok = false;
 
     const newBoard = structuredClone(board);
     newBoard[y][x] = turnColor; // まず自分の石を置く
-
     // 縦方向の処理
     // 下側
     if (
@@ -41,6 +31,7 @@ export default function Home() {
       board[y + 2][x] === turnColor
     ) {
       newBoard[y + 1][x] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -52,6 +43,7 @@ export default function Home() {
     ) {
       newBoard[y + 2][x] = turnColor;
       newBoard[y + 1][x] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -66,6 +58,7 @@ export default function Home() {
       newBoard[y + 3][x] = turnColor;
       newBoard[y + 2][x] = turnColor;
       newBoard[y + 1][x] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -83,6 +76,7 @@ export default function Home() {
       newBoard[y + 3][x] = turnColor;
       newBoard[y + 2][x] = turnColor;
       newBoard[y + 1][x] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -103,6 +97,7 @@ export default function Home() {
       newBoard[y + 3][x] = turnColor;
       newBoard[y + 2][x] = turnColor;
       newBoard[y + 1][x] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -126,6 +121,7 @@ export default function Home() {
       newBoard[y + 3][x] = turnColor;
       newBoard[y + 2][x] = turnColor;
       newBoard[y + 1][x] = turnColor;
+      ok = true;
     }
     // 上側
     if (
@@ -135,6 +131,7 @@ export default function Home() {
       board[y - 2][x] === turnColor
     ) {
       newBoard[y - 1][x] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -146,6 +143,7 @@ export default function Home() {
     ) {
       newBoard[y - 2][x] = turnColor;
       newBoard[y - 1][x] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -160,6 +158,7 @@ export default function Home() {
       newBoard[y - 3][x] = turnColor;
       newBoard[y - 2][x] = turnColor;
       newBoard[y - 1][x] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -177,6 +176,7 @@ export default function Home() {
       newBoard[y - 3][x] = turnColor;
       newBoard[y - 2][x] = turnColor;
       newBoard[y - 1][x] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -197,6 +197,7 @@ export default function Home() {
       newBoard[y - 3][x] = turnColor;
       newBoard[y - 2][x] = turnColor;
       newBoard[y - 1][x] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -220,6 +221,7 @@ export default function Home() {
       newBoard[y - 3][x] = turnColor;
       newBoard[y - 2][x] = turnColor;
       newBoard[y - 1][x] = turnColor;
+      ok = true;
     }
     // 横方向の処理
     // 右側
@@ -230,6 +232,7 @@ export default function Home() {
       board[y][x + 2] === turnColor
     ) {
       newBoard[y][x + 1] = turnColor;
+      ok = true;
     }
     if (
       x + 1 < 8 &&
@@ -241,6 +244,7 @@ export default function Home() {
     ) {
       newBoard[y][x + 2] = turnColor;
       newBoard[y][x + 1] = turnColor;
+      ok = true;
     }
     if (
       x + 1 < 8 &&
@@ -255,58 +259,61 @@ export default function Home() {
       newBoard[y][x + 3] = turnColor;
       newBoard[y][x + 2] = turnColor;
       newBoard[y][x + 1] = turnColor;
+      ok = true;
     }
     if (
-      y + 1 < 8 &&
+      x + 1 < 8 &&
       board[y][x + 1] === 3 - turnColor &&
-      y + 2 < 8 &&
+      x + 2 < 8 &&
       board[y][x + 2] === 3 - turnColor &&
-      y + 3 < 8 &&
+      x + 3 < 8 &&
       board[y][x + 3] === 3 - turnColor &&
-      y + 4 < 8 &&
+      x + 4 < 8 &&
       board[y][x + 4] === 3 - turnColor &&
-      y + 5 < 8 &&
+      x + 5 < 8 &&
       board[y][x + 5] === turnColor
     ) {
       newBoard[y][x + 1] = turnColor;
       newBoard[y][x + 2] = turnColor;
       newBoard[y][x + 3] = turnColor;
       newBoard[y][x + 4] = turnColor;
+      ok = true;
     }
     if (
-      y + 1 < 8 &&
+      x + 1 < 8 &&
       board[y][x + 1] === 3 - turnColor &&
-      y + 2 < 8 &&
+      x + 2 < 8 &&
       board[y][x + 2] === 3 - turnColor &&
-      y + 3 < 8 &&
+      x + 3 < 8 &&
       board[y][x + 3] === 3 - turnColor &&
-      y + 4 < 8 &&
+      x + 4 < 8 &&
       board[y][x + 4] === 3 - turnColor &&
-      y + 5 < 8 &&
-      board[y][x + 4] === 3 - turnColor &&
-      y + 6 < 8 &&
-      board[y][x + 5] === turnColor
+      x + 5 < 8 &&
+      board[y][x + 5] === 3 - turnColor &&
+      x + 6 < 8 &&
+      board[y][x + 6] === turnColor
     ) {
       newBoard[y][x + 1] = turnColor;
       newBoard[y][x + 2] = turnColor;
       newBoard[y][x + 3] = turnColor;
       newBoard[y][x + 4] = turnColor;
       newBoard[y][x + 5] = turnColor;
+      ok = true;
     }
     if (
-      y + 1 < 8 &&
+      x + 1 < 8 &&
       board[y][x + 1] === 3 - turnColor &&
-      y + 2 < 8 &&
+      x + 2 < 8 &&
       board[y][x + 2] === 3 - turnColor &&
-      y + 3 < 8 &&
+      x + 3 < 8 &&
       board[y][x + 3] === 3 - turnColor &&
-      y + 4 < 8 &&
+      x + 4 < 8 &&
       board[y][x + 4] === 3 - turnColor &&
-      y + 5 < 8 &&
+      x + 5 < 8 &&
       board[y][x + 5] === 3 - turnColor &&
-      y + 6 < 8 &&
+      x + 6 < 8 &&
       board[y][x + 6] === 3 - turnColor &&
-      y + 7 < 8 &&
+      x + 7 < 8 &&
       board[y][x + 7] === turnColor
     ) {
       newBoard[y][x + 1] = turnColor;
@@ -315,6 +322,7 @@ export default function Home() {
       newBoard[y][x + 4] = turnColor;
       newBoard[y][x + 5] = turnColor;
       newBoard[y][x + 6] = turnColor;
+      ok = true;
     }
     // 左側
     if (
@@ -324,6 +332,7 @@ export default function Home() {
       board[y][x - 2] === turnColor
     ) {
       newBoard[y][x - 1] = turnColor;
+      ok = true;
     }
     if (
       x - 1 >= 0 &&
@@ -335,6 +344,7 @@ export default function Home() {
     ) {
       newBoard[y][x - 2] = turnColor;
       newBoard[y][x - 1] = turnColor;
+      ok = true;
     }
     if (
       x - 1 >= 0 &&
@@ -349,36 +359,38 @@ export default function Home() {
       newBoard[y][x - 3] = turnColor;
       newBoard[y][x - 2] = turnColor;
       newBoard[y][x - 1] = turnColor;
+      ok = true;
     }
     if (
-      y - 1 >= 0 &&
+      x - 1 >= 0 &&
       board[y][x - 1] === 3 - turnColor &&
-      y - 2 >= 0 &&
+      x - 2 >= 0 &&
       board[y][x - 2] === 3 - turnColor &&
-      y - 3 >= 0 &&
+      x - 3 >= 0 &&
       board[y][x - 3] === 3 - turnColor &&
-      y - 4 >= 0 &&
+      x - 4 >= 0 &&
       board[y][x - 4] === 3 - turnColor &&
-      y - 5 >= 0 &&
+      x - 5 >= 0 &&
       board[y][x - 5] === turnColor
     ) {
       newBoard[y][x - 1] = turnColor;
       newBoard[y][x - 2] = turnColor;
       newBoard[y][x - 3] = turnColor;
       newBoard[y][x - 4] = turnColor;
+      ok = true;
     }
     if (
-      y - 1 >= 0 &&
+      x - 1 >= 0 &&
       board[y][x - 1] === 3 - turnColor &&
-      y - 2 >= 0 &&
+      x - 2 >= 0 &&
       board[y][x - 2] === 3 - turnColor &&
-      y - 3 >= 0 &&
+      x - 3 >= 0 &&
       board[y][x - 3] === 3 - turnColor &&
-      y - 4 >= 0 &&
+      x - 4 >= 0 &&
       board[y][x - 4] === 3 - turnColor &&
-      y - 5 >= 0 &&
+      x - 5 >= 0 &&
       board[y][x - 4] === 3 - turnColor &&
-      y - 6 >= 0 &&
+      x - 6 >= 0 &&
       board[y][x - 5] === turnColor
     ) {
       newBoard[y][x - 1] = turnColor;
@@ -386,21 +398,22 @@ export default function Home() {
       newBoard[y][x - 3] = turnColor;
       newBoard[y][x - 4] = turnColor;
       newBoard[y][x - 5] = turnColor;
+      ok = true;
     }
     if (
-      y - 1 >= 0 &&
+      x - 1 >= 0 &&
       board[y][x - 1] === 3 - turnColor &&
-      y - 2 >= 0 &&
+      x - 2 >= 0 &&
       board[y][x - 2] === 3 - turnColor &&
-      y - 3 >= 0 &&
+      x - 3 >= 0 &&
       board[y][x - 3] === 3 - turnColor &&
-      y - 4 >= 0 &&
+      x - 4 >= 0 &&
       board[y][x - 4] === 3 - turnColor &&
-      y - 5 >= 0 &&
+      x - 5 >= 0 &&
       board[y][x - 5] === 3 - turnColor &&
-      y - 6 >= 0 &&
+      x - 6 >= 0 &&
       board[y][x - 6] === 3 - turnColor &&
-      y - 7 >= 0 &&
+      x - 7 >= 0 &&
       board[y][x - 7] === turnColor
     ) {
       newBoard[y][x - 1] = turnColor;
@@ -409,6 +422,7 @@ export default function Home() {
       newBoard[y][x - 4] = turnColor;
       newBoard[y][x - 5] = turnColor;
       newBoard[y][x - 6] = turnColor;
+      ok = true;
     }
     // 斜め方向の処理
     // 右下
@@ -421,6 +435,7 @@ export default function Home() {
       board[y + 2][x + 2] === turnColor
     ) {
       newBoard[y + 1][x + 1] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -435,6 +450,7 @@ export default function Home() {
     ) {
       newBoard[y + 2][x + 2] = turnColor;
       newBoard[y + 1][x + 1] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -453,6 +469,7 @@ export default function Home() {
       newBoard[y + 3][x + 3] = turnColor;
       newBoard[y + 2][x + 2] = turnColor;
       newBoard[y + 1][x + 1] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -475,6 +492,7 @@ export default function Home() {
       newBoard[y + 3][x + 3] = turnColor;
       newBoard[y + 2][x + 2] = turnColor;
       newBoard[y + 1][x + 1] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -501,6 +519,7 @@ export default function Home() {
       newBoard[y + 3][x + 3] = turnColor;
       newBoard[y + 2][x + 2] = turnColor;
       newBoard[y + 1][x + 1] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -531,6 +550,7 @@ export default function Home() {
       newBoard[y + 3][x + 3] = turnColor;
       newBoard[y + 2][x + 2] = turnColor;
       newBoard[y + 1][x + 1] = turnColor;
+      ok = true;
     }
     // 右上
     //上にいって右にいくイメージだから、ｙがーでｘが＋になる
@@ -543,6 +563,7 @@ export default function Home() {
       board[y - 2][x + 2] === turnColor
     ) {
       newBoard[y - 1][x + 1] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -557,6 +578,7 @@ export default function Home() {
     ) {
       newBoard[y - 2][x + 2] = turnColor;
       newBoard[y - 1][x + 1] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -575,6 +597,7 @@ export default function Home() {
       newBoard[y - 3][x + 3] = turnColor;
       newBoard[y - 2][x + 2] = turnColor;
       newBoard[y - 1][x + 1] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -597,6 +620,7 @@ export default function Home() {
       newBoard[y - 3][x + 3] = turnColor;
       newBoard[y - 2][x + 2] = turnColor;
       newBoard[y - 1][x + 1] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -623,6 +647,7 @@ export default function Home() {
       newBoard[y - 3][x + 3] = turnColor;
       newBoard[y - 2][x + 2] = turnColor;
       newBoard[y - 1][x + 1] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -653,6 +678,7 @@ export default function Home() {
       newBoard[y - 3][x + 3] = turnColor;
       newBoard[y - 2][x + 2] = turnColor;
       newBoard[y - 1][x + 1] = turnColor;
+      ok = true;
     }
     // 左上
     if (
@@ -664,6 +690,7 @@ export default function Home() {
       board[y - 2][x - 2] === turnColor
     ) {
       newBoard[y - 1][x - 1] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -678,6 +705,7 @@ export default function Home() {
     ) {
       newBoard[y - 2][x - 2] = turnColor;
       newBoard[y - 1][x - 1] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -696,6 +724,7 @@ export default function Home() {
       newBoard[y - 3][x - 3] = turnColor;
       newBoard[y - 2][x - 2] = turnColor;
       newBoard[y - 1][x - 1] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -718,6 +747,7 @@ export default function Home() {
       newBoard[y - 3][x - 3] = turnColor;
       newBoard[y - 2][x - 2] = turnColor;
       newBoard[y - 1][x - 1] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -744,6 +774,7 @@ export default function Home() {
       newBoard[y - 3][x - 3] = turnColor;
       newBoard[y - 2][x - 2] = turnColor;
       newBoard[y - 1][x - 1] = turnColor;
+      ok = true;
     }
     if (
       y - 1 >= 0 &&
@@ -774,6 +805,7 @@ export default function Home() {
       newBoard[y - 3][x - 3] = turnColor;
       newBoard[y - 2][x - 2] = turnColor;
       newBoard[y - 1][x - 1] = turnColor;
+      ok = true;
     }
     // 左下
     if (
@@ -785,6 +817,7 @@ export default function Home() {
       board[y + 2][x - 2] === turnColor
     ) {
       newBoard[y + 1][x - 1] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -799,6 +832,7 @@ export default function Home() {
     ) {
       newBoard[y + 2][x - 2] = turnColor;
       newBoard[y + 1][x - 1] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -817,6 +851,7 @@ export default function Home() {
       newBoard[y + 3][x - 3] = turnColor;
       newBoard[y + 2][x - 2] = turnColor;
       newBoard[y + 1][x - 1] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -839,6 +874,7 @@ export default function Home() {
       newBoard[y + 3][x - 3] = turnColor;
       newBoard[y + 2][x - 2] = turnColor;
       newBoard[y + 1][x - 1] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -865,6 +901,7 @@ export default function Home() {
       newBoard[y + 3][x - 3] = turnColor;
       newBoard[y + 2][x - 2] = turnColor;
       newBoard[y + 1][x - 1] = turnColor;
+      ok = true;
     }
     if (
       y + 1 < 8 &&
@@ -895,10 +932,14 @@ export default function Home() {
       newBoard[y + 3][x - 3] = turnColor;
       newBoard[y + 2][x - 2] = turnColor;
       newBoard[y + 1][x - 1] = turnColor;
+      ok = true;
     }
-
-    setBoard(newBoard);
-    setTurnColor(3 - turnColor);
+    //石を置けなくする処理
+    if (ok) {
+      newBoard[y][x] = turnColor;
+      setBoard(newBoard);
+      setTurnColor(3 - turnColor);
+    }
   };
 
   // const newBoard = structuredClone(board);

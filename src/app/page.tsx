@@ -19,6 +19,7 @@ export default function Home() {
     if (board[y][x] !== 0) return;
     //石がある➡undefind
     let ok = false;
+    //置けるならtrueにする
 
     const newBoard = structuredClone(board);
     newBoard[y][x] = turnColor; // まず自分の石を置く

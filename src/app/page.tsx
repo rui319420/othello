@@ -14,13 +14,13 @@ export default function Home() {
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
   ]);
+  let judge;
   const clickHandler = (x: number, y: number) => {
     console.log(x, y);
     if (board[y][x] !== 0) return;
     //石がある➡undefind
     let ok = false;
     //置けるならtrueにする
-
     const newBoard = structuredClone(board);
     newBoard[y][x] = turnColor; // まず自分の石を置く
     // 縦方向の処理
@@ -79,6 +79,7 @@ export default function Home() {
       newBoard[y + 1][x] = turnColor;
       ok = true;
     }
+
     if (
       y + 1 < 8 &&
       board[y + 1][x] === 3 - turnColor &&
@@ -942,16 +943,11 @@ export default function Home() {
       setTurnColor(3 - turnColor);
     }
   };
+  const passHandler = () => {
+    setTurnColor(3 - turnColor);
+    console.log(3 - turnColor);
+  };
 
-  // const newBoard = structuredClone(board);
-  // newBoard[y][x] = turnColor;
-  // setBoard(newBoard);
-  // setTurnColor(3 - turnColor);
-  // if (board[y + 1] !== undefined && board[y + 1][x] === 3 - turnColor) {
-  //   newBoard[y][x] = turnColor;
-  //   setTurnColor(3 - turnColor);
-  // }
-  // setBoard(newBoard);
   return (
     <div className={styles.container}>
       <div className={styles.board}>
@@ -968,6 +964,9 @@ export default function Home() {
           )),
         )}
       </div>
+      <button className={styles.button} onClick={passHandler}>
+        パス
+      </button>
     </div>
   );
 }

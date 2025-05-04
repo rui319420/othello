@@ -34,6 +34,16 @@
   border-radius: 56px;
 }
 
+.turnDisplay {
+  position: absolute; /* 絶対位置指定 */
+  top: 20px; /* 上からの距離 */
+  right: 20px; /* 右からの距離 */
+  z-index: 10; /* 他の要素より前面に表示するため */
+  font-size: 4em;
+  font-weight: bold;
+  color: rgb(255 0 208);
+}
+
 .button {
   padding: 10px 20px;
   margin-top: 5px;

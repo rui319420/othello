@@ -948,8 +948,11 @@ export default function Home() {
     console.log(3 - turnColor);
   };
 
+  const currentPlayer = turnColor === 1 ? '黒' : '白';
+
   return (
     <div className={styles.container}>
+      <div className={styles.turnDisplay}>{currentPlayer}の番です</div>
       <div className={styles.board}>
         {board.map((row, y) =>
           row.map((color, x) => (

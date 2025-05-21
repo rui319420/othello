@@ -35,10 +35,10 @@
 }
 
 .turnDisplay {
-  position: absolute; /* 絶対位置指定 */
-  top: 20px; /* 上からの距離 */
-  right: 20px; /* 右からの距離 */
-  z-index: 10; /* 他の要素より前面に表示するため */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
   font-size: 4em;
   font-weight: bold;
   color: rgb(255 0 208);
@@ -53,4 +53,14 @@
   background-color: orange;
   border: black;
   border-radius: 5px;
+}
+
+.countStone {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  font-size: 4em;
+  font-weight: bold;
+  color: rgb(255 0 208);
 }

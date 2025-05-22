@@ -8,18 +8,16 @@ export default function Home() {
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 2, 1, 2, 0, 0, 0],
-    [0, 2, 1, 2, 1, 0, 0, 0],
-    [0, 1, 2, 0, 0, 0, 0, 0],
-    [0, 2, 1, 0, 0, 0, 0, 0],
-    [0, 1, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 2, 0, 0, 0],
+    [0, 0, 0, 2, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
   ]);
   const passHandler = () => {
     setTurnColor(3 - turnColor);
     console.log(3 - turnColor);
   };
-  const kuro = 0;
-  const shiro = 0;
   const clickHandler = (x: number, y: number) => {
     console.log(x, y);
     if (board[y][x] !== 0) return;
@@ -32,13 +30,90 @@ export default function Home() {
     setBoard(newBoard);
     if (board[y][x] !== 0) return;
     const turnOK = false;
-    let i = 1;
     //ひとつずつ下に進んで自分の色があったら今度は上にひとつずつ色をひっくり返す操作i<jがそれ
-    for (; i < 8; i++) {
+    for (let i = 1; i < 8; i++) {
+      if (y + i < 0 || y + i >= 8) break; //調べたところが盤面外なら終了（四隅対策）
       if (board[y][x] !== undefined && board[y + i][x] === 3 - turnColor) continue;
       if (board[y + i][x] === turnColor) {
-        for (let j = 0; j < i; j++) {
+        for (let j = 1; j < i; j++) {
           newBoard[y + j][x] = turnColor;
+        }
+      }
+      break;
+    }
+    //上方向
+    for (let i = 1; i < 8; i++) {
+      if (y - i < 0 || y - i >= 8) break;
+      if (board[y][x] !== undefined && board[y - i][x] === 3 - turnColor) continue;
+      if (board[y - i][x] === turnColor) {
+        for (let j = 1; j < i; j++) {
+          newBoard[y - j][x] = turnColor;
+        }
+      }
+      break;
+    }
+    //右方向
+    for (let i = 1; i < 8; i++) {
+      if (x + i < 0 || x + i >= 8) break;
+      if (board[y][x + i] !== undefined && board[y][x + i] === 3 - turnColor) continue;
+      if (board[y][x + i] === turnColor) {
+        for (let j = 1; j < i; j++) {
+          newBoard[y][x + j] = turnColor;
+        }
+      }
+      break;
+    }
+    //左方向
+    for (let i = 1; i < 8; i++) {
+      if (x - i < 0 || x - i >= 8) break;
+      if (board[y][x - i] !== undefined && board[y][x - i] === 3 - turnColor) continue;
+      if (board[y][x - i] === turnColor) {
+        for (let j = 1; j < i; j++) {
+          newBoard[y][x - j] = turnColor;
+        }
+      }
+      break;
+    }
+    //右下方向
+    for (let i = 1; i < 8; i++) {
+      if (y + i < 0 || y + i >= 8 || x + i < 0 || x + i >= 8) break;
+      if (board[y + i][x + i] !== undefined && board[y + i][x + i] === 3 - turnColor) continue;
+      if (board[y + i][x + i] === turnColor) {
+        for (let j = 1; j < i; j++) {
+          newBoard[y + j][x + j] = turnColor;
+        }
+      }
+      break;
+    }
+    //右上方向
+    for (let i = 1; i < 8; i++) {
+      if (y - i < 0 || y - i >= 8 || x + i < 0 || x + i >= 8) break;
+      if (board[y - i][x + i] !== undefined && board[y - i][x + i] === 3 - turnColor) continue;
+      if (board[y - i][x + i] === turnColor) {
+        for (let j = 1; j < i; j++) {
+          newBoard[y - j][x + j] = turnColor;
+        }
+      }
+      break;
+    }
+    //左下方向
+    for (let i = 1; i < 8; i++) {
+      if (y + i < 0 || y + i >= 8 || x - i < 0 || x - i >= 8) break;
+      if (board[y + i][x - i] !== undefined && board[y + i][x - i] === 3 - turnColor) continue;
+      if (board[y + i][x - i] === turnColor) {
+        for (let j = 1; j < i; j++) {
+          newBoard[y + j][x - j] = turnColor;
+        }
+      }
+      break;
+    }
+    //左上方向
+    for (let i = 1; i < 8; i++) {
+      if (y - i < 0 || y - i >= 8 || x - i < 0 || x - i >= 8) break;
+      if (board[y - i][x - i] !== undefined && board[y - i][x - i] === 3 - turnColor) continue;
+      if (board[y - i][x - i] === turnColor) {
+        for (let j = 1; j < i; j++) {
+          newBoard[y - j][x - j] = turnColor;
         }
       }
       break;

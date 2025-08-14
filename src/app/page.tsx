@@ -154,18 +154,43 @@ export default function Home() {
   ];
 
   const clickHandler = (x: number, y: number) => {
-    console.log(x, y);
+    if (board[y][x] !== 0) return;
+
     const newBoard = structuredClone(board);
-    if (newBoard !== 0) return;
-    newBoard[y][x] === turnColor;
+    let flipped = false;
+
     for (const [dx, dy] of dirs) {
-      nx = x + dx; //前後１マス
-      const ny = y + dy;
-      if (newBoard[ny][nx] === 3 - turnColor) {
-        nx += dx;
+      const toFlip: [number, number][] = [];
+      let cx = x + dx;
+      let cy = y + dy;
+
+      while (cx >= 0 && cx < 8 && cy >= 0 && cy < 8) {
+        const cell = newBoard[cy][cx];
+        if (cell === 3 - turnColor) {
+          toFlip.push([cx, cy]);
+        } else if (cell === turnColor) {
+          if (toFlip.length > 0) {
+            for (const [fx, fy] of toFlip) {
+              newBoard[fy][fx] = turnColor;
+            }
+            flipped = true;
+          }
+          break;
+        } else {
+          break;
+        }
+        cx += dx;
+        cy += dy;
       }
     }
+
+    if (flipped) {
+      newBoard[y][x] = turnColor;
+      setBoard(newBoard);
+      setTurnColor(3 - turnColor);
+    }
   };
+
   const currentPlayer = turnColor === 1 ? '黒' : '白';
 
   return (

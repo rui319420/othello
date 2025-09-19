@@ -15,132 +15,11 @@ export default function Home() {
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
   ]); //1:黒   2:白
+
   const passHandler = () => {
     setTurnColor(3 - turnColor);
     console.log(3 - turnColor);
   };
-
-  // const clickHandler = (x: number, y: number) => {
-  //   console.log(x, y);
-  //   if (board[y][x] !== 0) return;
-  //   //石がある➡undefind
-  //   let ok = false;
-  //   //置けるならtrueにする
-  //   const newBoard = structuredClone(board);
-
-  //   newBoard[y][x] = turnColor; // まず自分の石を置く
-
-  //   setBoard(newBoard);
-  //   if (board[y][x] !== 0) return;
-  //   //ひとつずつ下に進んで自分の色があったら今度は上にひとつずつ色をひっくり返す操作i<jがそれ
-  //   for (let i = 1; i < 8; i++) {
-  //     if (y + i < 0 || y + i >= 8) break; //調べたところが盤面外なら終了（四隅対策）
-  //     if (board[y][x] !== undefined && board[y + i][x] === 3 - turnColor) continue;
-  //     if (board[y + i][x] === turnColor && i > 1) {
-  //       ok = true;
-  //       for (let j = 1; j < i; j++) {
-  //         newBoard[y + j][x] = turnColor;
-  //       }
-  //     }
-  //     break;
-  //   }
-  //   //上方向
-  //   for (let i = 1; i < 8; i++) {
-  //     if (y - i < 0 || y - i >= 8) break;
-  //     if (board[y][x] !== undefined && board[y - i][x] === 3 - turnColor) continue;
-  //     if (board[y - i][x] === turnColor && i > 1) {
-  //       ok = true;
-  //       for (let j = 1; j < i; j++) {
-  //         newBoard[y - j][x] = turnColor;
-  //       }
-  //     }
-  //     break;
-  //   }
-  //   //右方向
-  //   for (let i = 1; i < 8; i++) {
-  //     if (x + i < 0 || x + i >= 8) break;
-  //     if (board[y][x + i] !== undefined && board[y][x + i] === 3 - turnColor) continue;
-  //     if (board[y][x + i] === turnColor && i > 1) {
-  //       ok = true;
-  //       for (let j = 1; j < i; j++) {
-  //         newBoard[y][x + j] = turnColor;
-  //       }
-  //     }
-  //     break;
-  //   }
-  //   //左方向
-  //   for (let i = 1; i < 8; i++) {
-  //     if (x - i < 0 || x - i >= 8) break;
-  //     if (board[y][x - i] !== undefined && board[y][x - i] === 3 - turnColor) continue;
-  //     if (board[y][x - i] === turnColor && i > 1) {
-  //       ok = true;
-  //       for (let j = 1; j < i; j++) {
-  //         newBoard[y][x - j] = turnColor;
-  //       }
-  //     }
-  //     break;
-  //   }
-  //   //右下方向
-  //   for (let i = 1; i < 8; i++) {
-  //     if (y + i < 0 || y + i >= 8 || x + i < 0 || x + i >= 8) break;
-  //     if (board[y + i][x + i] !== undefined && board[y + i][x + i] === 3 - turnColor) continue;
-  //     if (board[y + i][x + i] === turnColor && i > 1) {
-  //       ok = true;
-  //       for (let j = 1; j < i; j++) {
-  //         newBoard[y + j][x + j] = turnColor;
-  //       }
-  //     }
-  //     break;
-  //   }
-  //   //右上方向
-  //   for (let i = 1; i < 8; i++) {
-  //     if (y - i < 0 || y - i >= 8 || x + i < 0 || x + i >= 8) break;
-  //     if (board[y - i][x + i] !== undefined && board[y - i][x + i] === 3 - turnColor) continue;
-  //     if (board[y - i][x + i] === turnColor && i > 1) {
-  //       ok = true;
-  //       for (let j = 1; j < i; j++) {
-  //         newBoard[y - j][x + j] = turnColor;
-  //       }
-  //     }
-  //     break;
-  //   }
-  //   //左下方向
-  //   for (let i = 1; i < 8; i++) {
-  //     if (y + i < 0 || y + i >= 8 || x - i < 0 || x - i >= 8) break;
-  //     if (board[y + i][x - i] !== undefined && board[y + i][x - i] === 3 - turnColor) continue;
-  //     if (board[y + i][x - i] === turnColor && i > 1) {
-  //       ok = true;
-  //       for (let j = 1; j < i; j++) {
-  //         newBoard[y + j][x - j] = turnColor;
-  //       }
-  //     }
-  //     break;
-  //   }
-  //   //左上方向
-  //   for (let i = 1; i < 8; i++) {
-  //     if (y - i < 0 || y - i >= 8 || x - i < 0 || x - i >= 8) break;
-  //     if (board[y - i][x - i] !== undefined && board[y - i][x - i] === 3 - turnColor) continue;
-  //     if (board[y - i][x - i] === turnColor && i > 1) {
-  //       ok = true;
-  //       for (let j = 1; j < i; j++) {
-  //         newBoard[y - j][x - j] = turnColor;
-  //       }
-  //     }
-  //     break;
-  //   }
-  //   if (!ok) {
-  //     newBoard[y][x] = 0;
-  //     return;
-  //   }
-  //   setTurnColor(3 - turnColor);
-  //   if (board[y + 1] !== undefined && board[y + 1][x] === 3 - turnColor) {
-  //     newBoard[y][x] = turnColor;
-  //     setTurnColor(3 - turnColor);
-  //   }
-  //   setBoard(newBoard);
-  // };
-  // const blackPoint = calcBlackPoint();
-  // const whitePoint = calcWhitePoint();
 
   const dirs = [
     [0, 1],
@@ -154,41 +33,35 @@ export default function Home() {
   ];
 
   const clickHandler = (x: number, y: number) => {
-    if (board[y][x] !== 0) return;
-
+    console.log(x, y);
     const newBoard = structuredClone(board);
-    let flipped = false;
-
-    for (const [dx, dy] of dirs) {
-      const toFlip: [number, number][] = [];
-      let cx = x + dx;
-      let cy = y + dy;
-
-      while (cx >= 0 && cx < 8 && cy >= 0 && cy < 8) {
-        const cell = newBoard[cy][cx];
-        if (cell === 3 - turnColor) {
-          toFlip.push([cx, cy]);
-        } else if (cell === turnColor) {
-          if (toFlip.length > 0) {
-            for (const [fx, fy] of toFlip) {
-              newBoard[fy][fx] = turnColor;
-            }
-            flipped = true;
-          }
-          break;
-        } else {
-          break;
+    if (newBoard[y][x] !== 0) return;
+    newBoard[y][x] = turnColor;
+    for (const [dy, dx] of dirs) {
+      let searchX = x + dx; //前後１マス
+      let searchY = y + dy;
+      let count = 0;
+      while (
+        newBoard[searchY][searchX] !== undefined &&
+        newBoard[searchY][searchX] === 3 - turnColor
+      ) {
+        count++;
+        searchX += dx;
+        searchY += dy;
+      }
+      if (newBoard[searchY] === undefined || newBoard[searchY][searchX] === undefined) {
+        continue; // 盤面の外に出ていたら方向を変える
+      }
+      if (newBoard[searchY][searchX] === turnColor) {
+        for (let i = 1; i <= count; i++) {
+          const turnX = x + dx * i;
+          const turnY = y + dy * i;
+          newBoard[turnY][turnX] = turnColor;
         }
-        cx += dx;
-        cy += dy;
       }
     }
-
-    if (flipped) {
-      newBoard[y][x] = turnColor;
-      setBoard(newBoard);
-      setTurnColor(3 - turnColor);
-    }
+    setTurnColor(3 - turnColor);
+    setBoard(newBoard);
   };
 
   const currentPlayer = turnColor === 1 ? '黒' : '白';

@@ -16,11 +16,6 @@ export default function Home() {
     [0, 0, 0, 0, 0, 0, 0, 0],
   ]); //1:黒   2:白
 
-  const passHandler = () => {
-    setTurnColor(3 - turnColor);
-    console.log(3 - turnColor);
-  };
-
   const dirs = [
     [0, 1],
     [0, -1],
@@ -36,13 +31,16 @@ export default function Home() {
     console.log(x, y);
     const newBoard = structuredClone(board);
     if (newBoard[y][x] !== 0) return;
-    newBoard[y][x] = turnColor;
+    let canFlip: boolean = false;
     for (const [dy, dx] of dirs) {
       let searchX = x + dx; //前後１マス
       let searchY = y + dy;
       let count = 0;
       while (
-        newBoard[searchY][searchX] !== undefined &&
+        searchY >= 0 &&
+        searchY < 8 &&
+        searchX >= 0 &&
+        searchX < 8 &&
         newBoard[searchY][searchX] === 3 - turnColor
       ) {
         count++;
@@ -52,7 +50,8 @@ export default function Home() {
       if (newBoard[searchY] === undefined || newBoard[searchY][searchX] === undefined) {
         continue; // 盤面の外に出ていたら方向を変える
       }
-      if (newBoard[searchY][searchX] === turnColor) {
+      if (newBoard[searchY][searchX] === turnColor && count > 0) {
+        canFlip = true;
         for (let i = 1; i <= count; i++) {
           const turnX = x + dx * i;
           const turnY = y + dy * i;
@@ -60,11 +59,18 @@ export default function Home() {
         }
       }
     }
+    if (canFlip === false) return;
+    newBoard[y][x] = turnColor;
     setTurnColor(3 - turnColor);
     setBoard(newBoard);
   };
 
   const currentPlayer = turnColor === 1 ? '黒' : '白';
+
+  const passHandler = () => {
+    setTurnColor(3 - turnColor);
+    console.log(3 - turnColor);
+  };
 
   return (
     <div className={styles.container}>
